@@ -1,0 +1,71 @@
+# CRASHING NOT ALLOWED
+
+Crashing Not Allowed is a 3D racing game made by Type3Games (a group of 3 friends).
+
+# INSTALL
+
+TODO: installation guide
+
+# BUILD
+
+Building from source is optional, and it is not recommended for inexperienced users. 
+To simply play the game follow INSTALL section of this README.
+
+## Linux
+
+### Requirements
+- gcc (or different compatible C compiler using CC=...)
+- make
+- git (optional for download)
+
+Download the repository, navigate into it and run the following make command.
+```bash
+    # These commands will download the repository and build it.
+    # If you are downloading the repository manually use the only the make command in the root folder of the repository.
+
+    git clone https://github.com/qubas9/Crashing-Not-Allowed.git --depth 1
+    cd Crashing-Not-Allowed
+    
+    make PLATFORM=linux
+```
+
+The result binary (crashing-not-allowed\[version\]) will be in the root folder and all other files generated during build in the build folder. The binary needs to be in the same folder as assets folder.
+
+```bash
+    ./crashing-not-allowed
+```
+
+## Windows
+
+### Requirements
+- use [win64devkit](https://github.com/skeeto/w64devkit)
+- git (optional for download)
+
+ Download and extract win64devkit. Run w64devkit found inside the archive.
+ Download this repository, navigate into it in the win64console and run the following make command.
+
+```bash
+    # Run any of these commands in the win64devkit console.
+    # These commands will download the repository and build it.
+    # If you are downloading the repository manually use the only the make command in the root folder of the repository.
+    
+    git clone https://github.com/qubas9/Crashing-Not-Allowed.git --depth 1
+    cd Crashing-Not-Allowed
+
+    make PLATFORM=windows
+```
+
+The result binary (crashing-not-allowed_\[version\].exe) will be in the root folder and all other files generated during build in the build folder. The binary needs to be in the same folder as assets folder.
+
+```bash
+    crashing-not-allowed.exe
+```
+
+To delete build files make clean can be used
+```bash
+    make clean
+```
+
+# LICENSE
+The project uses [raylib](https://github.com/raysan5/raylib) by Ramon Santamaria (@raysan5).
+This project is licensed under the MIT License.

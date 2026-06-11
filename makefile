@@ -1,5 +1,5 @@
 VERSION ?= v0.0.1-b
-APP_NAME = do-not-crash
+APP_NAME = crashing-not-allowed
 NAME ?= $(APP_NAME)_$(VERSION)
 
 PLATFORM ?= linux
@@ -21,7 +21,7 @@ CFLAGS := -I$(RAYLIB_PATH)/linux
 CFLAGS += -DVERSION=\"$(VERSION)\"
 LDFLAGS := -L$(RAYLIB_PATH)/linux -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
-TARGET := $(NAME)
+TARGET := $(APP_NAME)
 
 endif
 
@@ -36,7 +36,7 @@ BUILD_DIR := build/windows
 CFLAGS := -I$(RAYLIB_PATH)/win
 LDFLAGS := -L$(RAYLIB_PATH)/win -lraylib -lopengl32 -lgdi32 -lwinmm
 
-TARGET := $(NAME).exe
+TARGET := $(APP_NAME).exe
 
 endif
 
@@ -67,4 +67,4 @@ $(BUILD_DIR)/%.o: src/%.c
 
 clean:
 	rm -rf build
-	rm -f $(APP_NAME)_* $(APP_NAME)_*.exe
+	rm -f $(APP_NAME)*
