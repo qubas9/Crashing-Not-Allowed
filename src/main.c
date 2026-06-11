@@ -1,6 +1,8 @@
 #include <raylib.h>
 
-#define VERSION "v0.0.1-b"
+#ifndef VERSION
+#define VERSION "unknown"
+#endif
 
 bool debug = false;
 
@@ -15,6 +17,7 @@ int main(int argc, char *argv[]) {
     InitWindow(1000,1000,"race");
     while (!WindowShouldClose()){
         BeginDrawing();
+        DrawFPS(500,500);
         ClearBackground(debug? GREEN : RAYWHITE);
         DrawText("Hello, world!", 10, 10, 20, DARKGRAY);
         EndDrawing();

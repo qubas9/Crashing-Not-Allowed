@@ -1,7 +1,11 @@
-NAME ?= race
+VERSION ?= v0.0.1-b
+APP_NAME = do-not-crash
+NAME ?= $(APP_NAME)_$(VERSION)
 
 PLATFORM ?= linux
 OPTIMIZATION ?= -O2
+
+RAYLIB_PATH := ./lib/thirdparty/raylib
 
 SRCS := $(wildcard src/*.c)
 
@@ -13,8 +17,9 @@ ifeq ($(PLATFORM),linux)
 CC := gcc
 BUILD_DIR := build/linux
 
-CFLAGS := -I./lib/raylib/linux
-LDFLAGS := -L./lib/raylib/linux -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+CFLAGS := -I$(RAYLIB_PATH)/linux
+CFLAGS += -DVERSION=\"$(VERSION)\"
+LDFLAGS := -L$(RAYLIB_PATH)/linux -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 TARGET := $(NAME)
 
@@ -28,8 +33,8 @@ ifeq ($(PLATFORM),windows)
 CC := x86_64-w64-mingw32-gcc
 BUILD_DIR := build/windows
 
-CFLAGS := -I./lib/raylib/win
-LDFLAGS := -L./lib/raylib/win -lraylib -lopengl32 -lgdi32 -lwinmm
+CFLAGS := -I$(RAYLIB_PATH)/win
+LDFLAGS := -L$(RAYLIB_PATH)/win -lraylib -lopengl32 -lgdi32 -lwinmm
 
 TARGET := $(NAME).exe
 
@@ -62,4 +67,4 @@ $(BUILD_DIR)/%.o: src/%.c
 
 clean:
 	rm -rf build
-	rm -f $(NAME) $(NAME).exe
+	rm -f $(APP_NAME)_* $(APP_NAME)_*.exe
