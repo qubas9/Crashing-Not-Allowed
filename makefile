@@ -13,8 +13,8 @@ ifeq ($(PLATFORM),linux)
 CC := gcc
 BUILD_DIR := build/linux
 
-CFLAGS := -I/home/qubas9/lib/raylib/src
-LDFLAGS := -L/home/qubas9/lib/raylib/src -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+CFLAGS := -I./lib/raylib/linux
+LDFLAGS := -L./lib/raylib/linux -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 TARGET := $(NAME)
 
@@ -28,8 +28,8 @@ ifeq ($(PLATFORM),windows)
 CC := x86_64-w64-mingw32-gcc
 BUILD_DIR := build/windows
 
-CFLAGS := -I/home/qubas9/lib/raylib-win/src
-LDFLAGS := -L/home/qubas9/lib/raylib-win/src -lraylib -lopengl32 -lgdi32 -lwinmm
+CFLAGS := -I./lib/raylib/win
+LDFLAGS := -L./lib/raylib/win -lraylib -lopengl32 -lgdi32 -lwinmm
 
 TARGET := $(NAME).exe
 
