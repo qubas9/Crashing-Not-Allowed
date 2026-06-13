@@ -68,4 +68,7 @@ To delete build files make clean can be used
 
 # LICENSE
 The project uses [raylib](https://github.com/raysan5/raylib) by Ramon Santamaria (@raysan5).
-This project is licensed under the MIT License.
+This project is licensed under the MIT License, full text in LICENSE.md
+
+# CONTRIBUTION AND VERSIONING
+For details on the development workflow and versioning system, see WORKFLOW.md
